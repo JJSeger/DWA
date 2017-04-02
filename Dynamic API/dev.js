@@ -6,16 +6,19 @@
 database and environmental variables.
 - Rename this file to development.js to properly connect to the database */
 
+
+
+    //Object to be exported
 var data={
-
+    // localhost connection
     sqlLocation:'localhost',
-
-    sqlUsr: 'root',
-
+    // database user
+    sqlUser: 'root',
+    // database password
     sqlPassword: null,
-
+    // database port
     port: 3000
 
 }
-
+    //exporting the object
 module.exports= data
