@@ -7,9 +7,11 @@
 
     //This defines an express router
 var router = require('express').Router(),
-    //This defines 
+    //This defines the route for the front end
     entrance = require('./paths/entrance'),
-
+    //this is the redirect for the short URL
     go = require('./paths/go'),
-
+    //this defines a route for interacting with the database and CRUD
     api = require('./paths/api');
+
+
