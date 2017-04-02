@@ -16,13 +16,19 @@ var router = require('express').Router(),
 
 
 
-
+//connecting modules to routes
 router
-
+    //This connects api routes
     .use('/api/v1/url',api)
-
+    //this connects the front page
     .use('/', entrance)
-
+    //this connects the redirect route
     .use('/go', go)
 
+//This exports router for use in server
 module.exports = router;
+
+
+
+
+
