@@ -15,3 +15,14 @@ var router = require('express').Router(),
     api = require('./paths/api');
 
 
+
+
+router
+
+    .use('/api/v1/url',api)
+
+    .use('/', entrance)
+
+    .use('/go', go)
+
+module.exports = router;
