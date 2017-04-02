@@ -1,0 +1,11 @@
+{
+  "name": "dynamic_api",
+  "version": "1.0.0",
+  "description": "A url shortener that uses express and node to create shorter urls",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "judd seger",
+  "license": "ISC"
+}
