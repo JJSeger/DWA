@@ -22,7 +22,7 @@ var Sequelize = require('sequelize'),
 
     Url = database.define('urls', {
 
-        
+
     }
 
 
