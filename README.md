@@ -2,7 +2,7 @@
 This is a simple application that will take a url that the user inputs in to the front end of the app and will cache that url on the application’s server and return a shortened version of that url. When the user then access the shortened url, the application will then redirect the use to the original url that inputted in to the app from the database.
 
 ---
-######INSTALL/APPLICATION SET UP
+###### INSTALL/APPLICATION SET UP
 The installation guide will show you step by step how to install, set up, configure and run our application. Happy coding in our open source playground.
 
 1.	To start, you can either clone or download the repository from github. After the download, has finished, place the folder of the app where ever you would like to have the app to exist.
