@@ -2,7 +2,7 @@
  * Created by JuddHome on 4/2/17.
  */
 
-//defines the use case of javascript
+//defines the use case for javascript
 'use strict';
 
 /* Modules */
