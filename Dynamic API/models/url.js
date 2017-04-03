@@ -19,11 +19,26 @@ var Sequelize = require('sequelize'),
     //This defines the database connection string
     database = new Sequelize('urlshortener', cred.sqlUser, cred.sqlPassword, { host: cred.sqlLocation }),
 
-
+    // This defines the model and database
     Url = database.define('urls', {
+        //This is for the original URL
+        originalUrl: {
+            type: Sequelize.STRING,
+            required: true
 
+        },
+        //This is the redirected url that is generated
+        shortUrl: {
+            type:Sequelize.STRING,
+            required: true
+        },
 
-    }
+        //The url id is used to search the urls and generate short urls
+        urlId: {
+            type: Sequelize.STRING,
+            required: true
+
+    })
 
 
 
