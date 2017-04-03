@@ -47,9 +47,34 @@ api
             };
 
 
+            //this tell the model to save data to the database
+
+        db.create(newUrl).then((data)=>{
+
+            // This responds with the saved data and 200 message
+            res.status(200).json({data: data})
+
+        })
+
+    })
 
 
 
+        //this deletes the url
+    .delete('/:id', (req, res) => {
 
+        //this finds and dropps url from url tables using the id
+        db.destroy({where: {urlId: req.params.id}}).then((data)=>{
+            //respond with 200 mand boolean for succes
+            res.status(200).json({data: data})
+
+
+        })
+
+    })
+
+
+//this exports module as object
+module.exports = api;
 
 
