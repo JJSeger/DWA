@@ -29,7 +29,7 @@ var Sequelize = require('sequelize'),
         },
         //This is the redirected url that is generated
         shortUrl: {
-            type:Sequelize.STRING,
+            type: Sequelize.STRING,
             required: true
         },
 
@@ -38,11 +38,15 @@ var Sequelize = require('sequelize'),
             type: Sequelize.STRING,
             required: true
 
+        }
     })
 
 
+//syncing the database
+database.sync()
 
-
+//expoprting the databse defintion  as a model for interacting
+module.exports = Url
 
 
 
