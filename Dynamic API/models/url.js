@@ -6,11 +6,8 @@
 
 
 /*  The code below defines the connection to the database
-and to a table to store and access the urls that are created
+        and to a table to store and access the urls that are created
 */
-
-
-
 
     //Importing Sequelize
 var Sequelize = require('sequelize'),

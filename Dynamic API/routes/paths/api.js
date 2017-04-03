@@ -41,9 +41,9 @@ api
         var id = gen(),
             //instantiate object to be saved and connects data
             newUrl = {
-            originalUrl: req.body.url,
-            shortUrl: id.short,
-            urlId: id.code
+                originalUrl: req.body.url,
+                shortUrl: id.short,
+                urlId: id.code
             };
 
 

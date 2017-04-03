@@ -18,7 +18,7 @@ go.get('/:id', (req, res) => {
     // this is a 200 status and redirect
     res.status(200).redirect(data.originalUrl);
 
-})
+    })
 
 })
 

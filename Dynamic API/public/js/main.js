@@ -21,6 +21,6 @@ var app = new Vue({
 
     //this.check();
 
-}
+    }
 
 });
