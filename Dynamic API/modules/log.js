@@ -11,4 +11,22 @@ var fs = require('fs'),
     path = require('path'),
     log = {}
 
-log.debug =
+log.debug = debugState)=> {
+
+    if(debugState){
+
+        console.log = function(message){
+
+            fs.appendFile('./logs/logs.md', message, (err)=>{
+                //
+                if (err) throw err;
+
+            })
+
+        }
+
+    }
+
+}
+
+module.exports = log
