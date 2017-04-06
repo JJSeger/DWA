@@ -44,6 +44,8 @@ api
     //creates a url
     .post('/', (req, res) => {
 
+        // this console.logs route access too
+        console.log('\n###### Route to create url have been accessed\n---')
 
         //data object cache
         var id = gen(),
