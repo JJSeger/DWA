@@ -9,15 +9,20 @@
 
 
 var
+    //this uses express as the main server framework
     express = require('express'),
-
+    //this instantiates express into an app varible
     app = express(),
-
+    //this uses body parser or logic in the api
     bp = require('body-parser'),
-
+    //this cache development credentails
     cred = require('./development'),
+    //this imports the master router
+    routes = require('./routes/master'),
+    //this imports the debug module
+    test = require('./modules/log')
 
-    routes = require('./routes/master')
+
 
 
 /* Server Config */
