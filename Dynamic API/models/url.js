@@ -47,6 +47,12 @@ var Sequelize = require('sequelize'),
 //syncing the database
 database.sync()
 
+
+// logging successful connection
+console.log('###### Database connection synced and connection ready\n---')
+
+
+
 //expoprting the databse defintion  as a model for interacting
 module.exports = Url
 
