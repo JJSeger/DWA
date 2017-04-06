@@ -58,9 +58,9 @@ console.log('# Url Shortener has started\n---\n###### Application config was suc
 exports.server = app.listen(cred.port, ()=>{
 
         //this console.logs that the server is running correctly
-    console.log('Server has started and is running.')
+    console.log('###### Application successfully configured and launched on port '+cred.port+'\n---')
 
-});
+})
 
 
 // This exports the app for use elsewhere
