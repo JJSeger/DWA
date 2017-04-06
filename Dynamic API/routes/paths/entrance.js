@@ -13,10 +13,14 @@ entrance.get('/', (req, res) => {
 
     //sends back response
     res
-    // this defines the response
-    .status(200)
-    // sending the index file
-    .sendFile(path.join(__dirname + '/../../../public/index.html'));
+        // this defines the response
+        .status(200)
+        // sending the index file
+        .sendFile(path.join(__dirname + '/../../../public/index.html'))
+        .then((err)=>{
+        // this console.log the entrace path
+        console.log('###### Entrance Path has been accessed and successfully executed\n---') })
+
 
 });
 
