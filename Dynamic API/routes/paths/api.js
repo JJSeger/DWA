@@ -73,6 +73,10 @@ api
         //this deletes the url
     .delete('/:id', (req, res) => {
 
+        //this console.logs route access
+        console.log('\n###### Route to drop Url has been accessed.\n---')
+
+
         //this finds and dropps url from url tables using the id
         db.destroy({where: {urlId: req.params.id}}).then((data)=>{
             //respond with 200 mand boolean for succes
