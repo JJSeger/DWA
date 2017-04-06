@@ -25,6 +25,12 @@ router
     //this connects the redirect route
     .use('/go', go)
 
+
+
+
+
+// Connecting to the master path
+console.log('###### Master Path Loaded\n---')
 //This exports router for use in server
 module.exports = router;
 
