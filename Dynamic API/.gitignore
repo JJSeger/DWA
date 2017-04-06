@@ -1,6 +1,13 @@
 
 
 node_modules
-
+Desktop.ini
 development.js
 .DS_Store
+$RECYCLE.BIN/
+.AppleDouble
+.LSOverride
+README.html
+dev.env
+.env.json
+.env
