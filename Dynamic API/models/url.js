@@ -9,6 +9,11 @@
         and to a table to store and access the urls that are created
 */
 
+/* Import Modules*/
+console.log('###### Database connection initiated\n---')
+
+
+
     //Importing Sequelize
 var Sequelize = require('sequelize'),
     //importing environmental variables
