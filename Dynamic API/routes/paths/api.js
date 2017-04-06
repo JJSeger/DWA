@@ -26,6 +26,10 @@ api
 
     //this returns one url
     .get('/:id', (req, res) => {
+
+        //this console.logs route access too
+        console.log('\n###### Route for single url has been accessed\n---')
+
         //this is using the id param
         db.find({ where: { urlId: req.params.id } }).then((data)=>{
 
