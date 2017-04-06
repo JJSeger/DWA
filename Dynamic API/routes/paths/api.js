@@ -15,6 +15,10 @@ var api = require('express').Router(),
 api
     //returns the urls
     .get('/', (req, res) => {
+
+        //this console.logs route access
+        console.log('\n###### Route for all URLs has been accessed\n---')
+
         //this searches the database and returns them as a list
         db.findAll({}).then((data)=>{ res.json({ data: data }) })
 
