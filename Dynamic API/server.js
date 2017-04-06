@@ -27,7 +27,8 @@ var
 
 /* Server Config */
 
-// test.debug(DEBUG);
+//this sets dev envir to true
+test.debug(cred.debug)
 
 //tells the app to treat urls as data pipes
 app.use(bp.urlencoded({ extended: true }))
@@ -50,6 +51,8 @@ app.use('/', routes)
 /* Launching App */
 
 
+//this is launching the app
+console.log('# Url Shortener has started\n---\n###### Application config was successful, preparing to launch application on port ' + cred.port + '\n---\n')
 
 //This tells the app to listen on the set port
 exports.server = app.listen(cred.port, ()=>{
