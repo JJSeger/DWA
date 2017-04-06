@@ -18,7 +18,7 @@ entrance.get('/', (req, res) => {
         // sending the index file
         .sendFile(path.join(__dirname + '/../../../public/index.html'))
         .then((err)=>{
-        // this console.log the entrace path
+        // this console.log the entrance path
         console.log('###### Entrance Path has been accessed and successfully executed\n---') })
 
 

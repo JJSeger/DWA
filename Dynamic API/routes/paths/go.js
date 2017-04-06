@@ -16,7 +16,10 @@ go.get('/:id', (req, res) => {
     db.find({where:{urlId:req.params.id}, attributes: ['originalUrl']}).then((data)=>{
 
     // this is a 200 status and redirect
-    res.status(200).redirect(data.originalUrl);
+    res.status(200).redirect(data.originalUrl)
+
+    // this console.logs route access
+    console.log('###### Redirect route has been accessesed.\n---')
 
     })
 
