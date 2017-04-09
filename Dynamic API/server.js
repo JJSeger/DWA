@@ -8,19 +8,18 @@
 /* Modules */
 
 
-var
     //this uses express as the main server framework
-    express = require('express'),
+const express = require('express');
     //this instantiates express into an app varible
-    app = express(),
+const app = express();
     //this uses body parser or logic in the api
-    bp = require('body-parser'),
+const bp = require('body-parser');
     //this cache development credentails
-    cred = require('./development'),
+const cred = require('./development');
     //this imports the master router
-    routes = require('./routes/master'),
+const routes = require('./routes/master');
     //this imports the debug module
-    test = require('./modules/log')
+const test = require('./modules/log');
 
 
 
@@ -60,8 +59,8 @@ exports.server = app.listen(cred.port, ()=>{
         //this console.logs that the server is running correctly
     console.log('###### Application successfully configured and launched on port '+cred.port+'\n---')
 
-})
+});
 
 
 // This exports the app for use elsewhere
-exports = app
+exports = app;
