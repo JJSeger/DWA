@@ -6,13 +6,13 @@
     /*  This is to import modules  */
 
     //This defines an express router
-var router = require('express').Router(),
+const router = require('express').Router();
     //This defines the route for the front end
-    entrance = require('./paths/entrance'),
+const entrance = require('./paths/entrance');
     //this is the redirect for the short URL
-    go = require('./paths/go'),
+const go = require('./paths/go');
     //this defines a route for interacting with the database and CRUD
-    api = require('./paths/api');
+const api = require('./paths/api');
 
 
 
