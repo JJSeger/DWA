@@ -18,3 +18,6 @@ const server = require('express')();
 
 //  thuis is the development state module
 const log = require('../modules/log');
+
+// this uses super user testing for testing routes
+const supertest = require('supertest');
