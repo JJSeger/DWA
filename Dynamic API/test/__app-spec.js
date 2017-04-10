@@ -73,6 +73,12 @@ const shortHost = 'localhost:' + cred.port;
 
                 });
 
+                it('Short URL should contain URL ID', () => {
+
+                    // this checks if gen returns url ID
+                    expect(generator.short).to.contain(generator.code);
+
+                });
 
 
 
