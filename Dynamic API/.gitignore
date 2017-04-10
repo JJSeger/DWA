@@ -13,3 +13,4 @@ dev.env
 .env
 logs.md
 logs.txt
+.idea
