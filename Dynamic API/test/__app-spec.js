@@ -24,3 +24,6 @@ const supertest = require('supertest');
 
 //this is the http host for the beginning of the api urls
 const cred = require('../development');
+
+// this is the dec credeentials
+const host = 'http://localhost:' + cred.port + '/';
