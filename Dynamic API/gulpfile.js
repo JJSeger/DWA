@@ -16,3 +16,7 @@ const gulp = require('gulp');
 
 //this is the gulp version of mocha for unit tests
 const mocha = require('gulp-mocha');
+
+
+//this is the gulp version of nodemon for server restart on changes
+const nodemon = require('gulp-nodemon');
