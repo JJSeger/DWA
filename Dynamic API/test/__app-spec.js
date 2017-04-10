@@ -27,3 +27,6 @@ const cred = require('../development');
 
 // this is the dec credeentials
 const host = 'http://localhost:' + cred.port + '/';
+
+// this is the api address
+const api = 'api/v1/url/';
