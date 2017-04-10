@@ -36,51 +36,49 @@ const api = 'api/v1/url/';
 const shortHost = 'localhost:' + cred.port;
 
 
+// this is the main test wrapper
+describe('Master Application Tests', () = > {
+    // this test all custom modules
+    describe('Custom Module Tests', () = > {
 
-    // this is the main test wrapper
-    describe('Master Application Tests', () => {
-        // this test all custom modules
-        describe('Custom Module Tests', () => {
+        it('Modules Exists', () = > {
 
-            it('Modules Exists', () => {
-
-                // this checks for  existance of each module
-                expect(supertest).to.exist;
-                expect(generator).to.exist;
-                expect(cred).to.exist;
-                expect(host).to.exist;
+            // this checks for  existance of each module
+            expect(supertest).to.exist;
+            expect(generator).to.exist;
+            expect(cred).to.exist;
+            expect(host).to.exist;
 
             });
 
 
-
             //  this test the url code gen
-            describe('Url ID generator', () => {
+            describe('Url ID generator', () = > {
 
 
-                it('Should generate random 4 char ID code', () => {
+                it('Should generate random 4 char ID code', () = > {
 
-                         // test is gen ID is a 4 char string
+                    // test is gen ID is a 4 char string
                     expect(generator.code).to.have.lengthOf(4);
                     expect(testString).to.have.lengthOf(4);
 
                 });
 
-                it('Short URL Should contain the app location/host', () => {
+                it('Short URL Should contain the app location/host', () = > {
 
                     // this checks for a short url
                     expect(generator.short).to.contain(host);
 
                 });
 
-                it('Short URL should contain URL ID', () => {
+                it('Short URL should contain URL ID', () = > {
 
                     // this checks if gen returns url ID
                     expect(generator.short).to.contain(generator.code);
 
                 });
 
-                it('Should match short url generation fomula explicitly', () => {
+                it('Should match short url generation fomula explicitly', () = > {
 
                     // this checks if gen short url is config'd properly
                     expect(generator.short)
@@ -92,39 +90,118 @@ const shortHost = 'localhost:' + cred.port;
             });
 
 
+            // this tests the logging module
+            describe('Logging Module', () = > {
+
+                it('Should return return true', () = > {
+
+                    expect(log.test(cred.debug)).to.be.true;
+
+                });
+            });
+        });
+
+        describe('Application Route Tests', () = > {
+
+            describe('Main access Route', () = > {
+
+                it('Should return a rendered html page', () = > {
+
+                    supertest(server)
+                        .get(host)
+                        .expect(200)
+                        .end((err, res) = > {
+                        if(err) throw err;
+                    });
+
+                });
+
+            });
+
+            describe('Redirect functionality', () = > {
+
+                it('Should redirect request', () = > {
+
+                    supertest(server)
+                        .get(host + 'go/test')
+                        .expect(200)
+                        .end((err, res) = > {
+                        if(err) throw err;
+                });
+
+            });
+
+        });
+
+        describe('CRUD API Routes', () = > {
+
+            it('Should return list of urls', () = > {
+
+                supertest(server)
+                    .get(host + api)
+                    .expect(200)
+                    .expect('Content-Type', /json/)
+                    .end((err, res) = > {
+                    if(err) throw err;
+                });
+
+            });
+
+            it('Should return one url', () = > {
+
+                supertest(server)
+                    .get(host + api + 'test')
+                    .expect(200)
+                    .expect('Content-Type', /json/)
+                    .end((err, res) = > {
+                    if(err) throw err;
+                });
+
+            });
+
+            it('Should update a url', () = > {
+
+                supertest(server)
+                    .post(host + api + 'test')
+                    .field('url', 'https://facebook.com')
+                    .expect(200)
+                    .expect('Content-Type', /json/)
+                    .end((err, res) = > {
+                    if(err) throw err;
+                });
+
+            });
+
+            it('Should Create instance of URL', () = > {
+
+                supertest(server)
+                    .post(host + api)
+                    .field('url', 'https://google.com')
+                    .expect(200)
+                    .expect('Content-Type', /json/)
+                    .end((err, res) = > {
+                    if(err) throw err;
+                });
 
 
+            });
+
+            it('Should Drop URL', () = > {
+
+                supertest(server)
+                    .delete(host + api + 'drop')
+                    .expect(200)
+                    .expect('Content-Type', /json/)
+                    .end((err, res) = > {
+                    if(err) throw err;
+                });
 
 
+            });
+
+        });
 
 
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
