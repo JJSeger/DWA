@@ -21,3 +21,6 @@ const log = require('../modules/log');
 
 // this uses super user testing for testing routes
 const supertest = require('supertest');
+
+//this is the http host for the beginning of the api urls
+const cred = require('../development');
