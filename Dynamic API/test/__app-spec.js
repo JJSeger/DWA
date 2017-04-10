@@ -39,3 +39,6 @@ const shortHost = 'localhost:' + cred.port;
 
     // this is the main test wrapper
     describe('Master Application Tests', () => {
+        // this test all custom modules
+        describe('Custom Module Tests', () => {
+    }
