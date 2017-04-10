@@ -34,3 +34,8 @@ const api = 'api/v1/url/';
 
 // this is the short host  used for checking test
 const shortHost = 'localhost:' + cred.port;
+
+
+
+    // this is the main test wrapper
+    describe('Master Application Tests', () => {
