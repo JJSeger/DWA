@@ -3,7 +3,7 @@
  */
 
 //defines the use case for javascript
-'use strict';
+
 
 /* Modules */
 
