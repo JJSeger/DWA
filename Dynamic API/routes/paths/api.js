@@ -4,11 +4,11 @@
 
 //this defines the express router
 
-var api = require('express').Router(),
+const api = require('express').Router();
     //this imports the database connection
-    db = require('../../models/url'),
+const db = require('../../models/url');
     //this imports id and short url gen
-    gen = require('../../modules/generator');
+const gen = require('../../modules/generator');
 
 
 // API routes
@@ -17,10 +17,10 @@ api
     .get('/', (req, res) => {
 
         //this console.logs route access
-        console.log('\n###### Route for all URLs has been accessed\n---')
+        console.log('\n###### Route for all URLs has been accessed\n---');
 
         //this searches the database and returns them as a list
-        db.findAll({}).then((data)=>{ res.json({ data: data }) })
+        db.findAll({}).then((data)=>{ res.json({ data: data }) });
 
     })
 
@@ -28,15 +28,15 @@ api
     .get('/:id', (req, res) => {
 
         //this console.logs route access too
-        console.log('\n###### Route for single url has been accessed\n---')
+        console.log('\n###### Route for single url has been accessed\n---');
 
         //this is using the id param
         db.find({ where: { urlId: req.params.id } }).then((data)=>{
 
             //this returns single url
-            res.json({ data: data })
+            res.json({ data: data });
 
-        })
+        });
 
     })
 
@@ -45,26 +45,26 @@ api
     .post('/', (req, res) => {
 
         // this console.logs route access too
-        console.log('\n###### Route to create url have been accessed\n---')
+        console.log('\n###### Route to create url have been accessed\n---');
 
         //data object cache
-        var id = gen(),
+        const id = gen();
             //instantiate object to be saved and connects data
-            newUrl = {
+            const newUrl = {
                 originalUrl: req.body.url,
                 shortUrl: id.short,
-                urlId: id.code
+                urlId: id.code,
             };
 
 
             //this tell the model to save data to the database
 
-        db.create(newUrl).then((data)=>{
+        db.create(newUrl).then((dbdata)=>{
 
             // This responds with the saved data and 200 message
-            res.status(200).json({data: data})
+            res.status(200).json({data: dbdata})
 
-        })
+        });
 
     })
 
@@ -74,18 +74,18 @@ api
     .delete('/:id', (req, res) => {
 
         //this console.logs route access
-        console.log('\n###### Route to drop Url has been accessed.\n---')
+        console.log('\n###### Route to drop Url has been accessed.\n---');
 
 
         //this finds and dropps url from url tables using the id
         db.destroy({where: {urlId: req.params.id}}).then((data)=>{
             //respond with 200 mand boolean for succes
-            res.status(200).json({data: data})
+            res.status(200).json({data: dbdata});
 
 
-        })
+        });
 
-    })
+    });
 
 
 //this exports module as object
