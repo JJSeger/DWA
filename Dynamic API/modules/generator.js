@@ -28,6 +28,12 @@ module.exports = ()=>
     function generate() {
         string ='';
 
+        // this  runs the populate string function 3 times
+        for (let x = 0; x < 4; x += 1) {
+            //this populates string with random number
+            string += values.charAt(execute());
+        }
+
     }
 
 
