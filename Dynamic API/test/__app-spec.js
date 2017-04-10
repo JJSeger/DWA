@@ -65,3 +65,51 @@ const shortHost = 'localhost:' + cred.port;
                     expect(testString).to.have.lengthOf(4);
 
                 });
+
+                it('Short URL Should contain the app location/host', () => {
+
+                    // this checks for a short url
+                    expect(generator.short).to.contain(host);
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
