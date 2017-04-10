@@ -11,3 +11,5 @@ README.html
 dev.env
 .env.json
 .env
+logs.md
+logs.txt
