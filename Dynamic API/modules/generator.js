@@ -41,9 +41,6 @@ module.exports = ()=>
 
     //This checks to make sure that the string is at least 4  chars long
     if (string.length < 4 || string.length == 3) {
-
-
-
         //initiates generate again
         generate();
 
@@ -55,10 +52,10 @@ module.exports = ()=>
     const gen = {
         short: 'http://localhost:' + port + '/' + string,
         code: string
-    }
+    };
 
     //returns gen
     return gen;
 
 
-}
+};
