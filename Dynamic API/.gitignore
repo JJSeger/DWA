@@ -43,6 +43,7 @@ Temporary Items
 
 # node assets
 node_modules
+coverage
 
 # prepros files
 prepros-6.config
