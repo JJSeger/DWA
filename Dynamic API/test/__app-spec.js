@@ -80,7 +80,16 @@ const shortHost = 'localhost:' + cred.port;
 
                 });
 
+                it('Should match short url generation fomula explicitly', () => {
 
+                    // this checks if gen short url is config'd properly
+                    expect(generator.short)
+                        .to
+                        .equal(host + generator.code);
+
+                });
+
+            });
 
 
 
