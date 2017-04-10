@@ -5,22 +5,31 @@
 
 
 //Environmental credentials
-var port = require('../development').port;
+const port = require('../development').port;
 
 //Export function for use in server.js
 module.exports = ()=>
 {
     //cache return string
-    var string = '',
+    let string = '';
         //string for generating random code
-        values = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    const values = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
 
         //this defines the random function
-        execute = () =>{
+    function execute = () =>{
 
             //this is the formula for the random number
             return Math.floor(Math.random() * (values.length + 1));
-        },
+        }
+
+
+
+    // this generates the function loop
+    function generate() {
+        string ='';
+
+    }
+
 
         //caching the generated url
         shortUrl = {};
