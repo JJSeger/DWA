@@ -41,4 +41,27 @@ const shortHost = 'localhost:' + cred.port;
     describe('Master Application Tests', () => {
         // this test all custom modules
         describe('Custom Module Tests', () => {
-    }
+
+            it('Modules Exists', () => {
+
+                // this checks for  existance of each module
+                expect(supertest).to.exist;
+                expect(generator).to.exist;
+                expect(cred).to.exist;
+                expect(host).to.exist;
+
+            });
+
+
+
+            //  this test the url code gen
+            describe('Url ID generator', () => {
+
+
+                it('Should generate random 4 char ID code', () => {
+
+                         // test is gen ID is a 4 char string
+                    expect(generator.code).to.have.lengthOf(4);
+                    expect(testString).to.have.lengthOf(4);
+
+                });
