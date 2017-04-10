@@ -29,6 +29,15 @@ You are now ready to configure the application with the database credentials you
 5.	Make sure to have your database running and development.js file saved; now using your terminal/command line, run the command `npm start`.
 Congratulations, your app is now running on your chosen port number. To access the app, navigate to “localhost:YourPort/” in your choice of browser.
 
+
+## USAGE
+
+This application has a debug mode in which it will log strategic points of the application to a file for you to either archive or utilized in your tests. To activate the debug mode, navigate to the root folder of the application and open the development.js file. Once inside change the parameter for debug to true; it is set to false by default.
+
+###### LINTING
+This application uses the AIRbnb style guide for code formatting. For information on how in install eslint for your own use please follow the link [here](http://eslint.org/docs/user-guide/configuring). For more information how AIRbnb’s style guide, you can follow the link [here](https://github.com/airbnb/javascript).
+
+---
 ###### FILE META
 The file meta data will always be at the top of the file and will consist of the name of the file followed by its description and functionality within the application.
 
