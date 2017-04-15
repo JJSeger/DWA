@@ -27,3 +27,13 @@ router.get('/url', (req, res) => {
     res.status(200).json(data);
 });
 });
+
+// This GETs by ID
+router.get('/url/:id', (req, res) => {
+    req.body.id = req.params.id;
+url.find(req.body, (err) => {
+    res.status(500).json(err);
+}, (data) => {
+    res.status(200).json(data);
+});
+});
