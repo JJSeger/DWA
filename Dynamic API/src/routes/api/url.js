@@ -38,8 +38,10 @@ module.exports = (express) => {
         req.body.id = req.params.id;
         url.find(req.body, (err) => {
             res.status(500).json(err);
+            debug.debug('We do apologize but the urls were not read because of the following errors: ' + err, 'Error! ');
         }, (data) => {
             res.status(200).json(data);
+            debug.debug('Congrats. ALL The URLs were successfully read.');
         });
     });
 
