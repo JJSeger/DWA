@@ -13,10 +13,28 @@ const app = express();
 describe('URL Routes', () => {
     let server;
 
-beforeEach(() => {
+    beforeEach(() => {
     server = require('../src/server.js');
-});
+    });
 
-afterEach(() => {
-    server.close();
-});
+    afterEach(() => {
+        server.close();
+    });
+
+    // This test for multiple urls
+    it('GET /api/v1/url returns all', (done) => {
+        request(server)
+        .get('/api/v1/url')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+            const url = res.body;
+
+            // Save one single url
+            this.url = url[0];
+
+            expect(url.length).to.be.above(0);
+            })
+        .end(done);
+    });
+
