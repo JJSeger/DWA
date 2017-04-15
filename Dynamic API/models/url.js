@@ -3,8 +3,8 @@
  * This is the URL model
  */
 
-
-
+// This is require database
+var db = require('./db');
 
 
 
