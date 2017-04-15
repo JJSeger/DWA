@@ -18,3 +18,16 @@ exports.create = (payload, err, success) => {
 exports.findAll = (err, success) => {
     db.url.findAll().then(success).catch(err);
 };
+
+
+// This finds the created URL
+exports.findShortURL = (data, error, success) => {
+    // This finds url based on the shortened url
+    db.url.find({
+        where: {
+            short_url: data.shortenedUrl,
+        },
+    })
+        .then(success)
+        .catch(error);
+};
