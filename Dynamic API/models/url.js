@@ -50,3 +50,12 @@ exports.update = (payload, err, success) => {
         existingData.updateAttributes(payload).then(success).catch(err);
 }).catch(err);
 };
+
+//This deletes the url
+exports.destroy = (payload, err, success) => {
+    db.url.destroy({
+        where: {
+            id: payload.id,
+        },
+    }).then(success).catch(err);
+};
