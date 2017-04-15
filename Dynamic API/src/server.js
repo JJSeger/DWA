@@ -8,3 +8,6 @@ const debug = require('nx-debugtool');
 
 // This is express
 const app = express();
+
+//This is the port
+const port = process.env.PORT || 3000;
