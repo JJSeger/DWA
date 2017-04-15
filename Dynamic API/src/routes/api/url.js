@@ -19,7 +19,7 @@ module.exports = (express) => {
         }, (data) => {
             res.status(200).json(data);
             debug.debug('Yay! The shortened URL has been successfully created.' , 'yup, this was successful');
-        });
+        })
     });
 
 // This GETs All
@@ -42,7 +42,7 @@ module.exports = (express) => {
         }, (data) => {
             res.status(200).json(data);
             debug.debug('Congrats. ALL The URLs were successfully read.');
-        });
+        })
     });
 
     // This updates
@@ -52,7 +52,7 @@ module.exports = (express) => {
             res.status(500).json(err);
         }, (data) => {
             res.status(200).json(data);
-        });
+        })
     });
 
     // This deletes
@@ -60,9 +60,11 @@ module.exports = (express) => {
         req.body.id = req.params.id;
         url.destroy(req.body, (err) => {
             res.status(500).json(err);
+            debug.debug('Unfortunately the URL you are trying to delete was not successfully deleted due to these errors: ' + err, 'Error! ');
         }, (data) => {
             res.status(200).json(data);
-        });
+            debug.debug('The URL has been successfully updated.');
+        })
     });
 
     // This returns
