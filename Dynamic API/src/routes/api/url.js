@@ -26,9 +26,11 @@ module.exports = (express) => {
     router.get('/url', (req, res) => {
         url.findAll((err) => {
             res.status(500).json(err);
+            debug.debug('I am sincerely sorry. None of the URLs were successfully read because of the following errors: ' + err, 'Error! ');
         }, (data) => {
-    res.status(200).json(data);
-});
+            res.status(200).json(data);
+            debug.debug('Congrats. ALL The URLs were successfully read.');
+        })
     });
 
     // This GETs by ID
