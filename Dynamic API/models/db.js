@@ -33,3 +33,7 @@ var url = sequelize.define('url', {
 });
 
 sequelize.sync();
+// This exports sequelize
+
+exports.sequelize = sequelize;
+exports.url = url;
