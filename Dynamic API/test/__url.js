@@ -67,3 +67,24 @@ describe('URL Routes', () => {
             })
         .end(done);
     });
+
+
+    // This updates the test
+    it('POST /api/v1/url/:id  Update url based on id', (done) => {
+        const body = {
+            main_url: 'http://www.chefapple.com',
+            short_url: 'CHfApl',
+        };
+        request(server)
+            .put('/api/v1/url/' + this.url.id)
+            .send(body)
+            .expect(() => {
+                expect(this.url).to.have.property('id');
+                expect(this.url).to.have.property('createdOn');
+                expect(this.url).to.have.property('main_url');
+                expect(this.url).to.have.property('updatedOn');
+                expect(this.url).to.have.property('short_url');
+            })
+        .end(done);
+    });
+
