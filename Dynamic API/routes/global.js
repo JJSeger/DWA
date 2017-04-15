@@ -14,3 +14,24 @@ module.exports = (express) => {
     router.get('/', (req, res) => {
         res.json({ main: 'hit' });
 });
+
+
+//this is for the shortUrl
+    router.get('/go/:shortenedUrl', (req, res) => {
+        var request = req;
+        var response = res;
+        request.body.shortenedUrl = request.params.shortenedUrl;
+        url.findShortURL(request.body, (err) => {
+            response.status(500).json(err);
+        }, (data) => {
+            // This redirects to the original url
+            response.redirect(data.first_url);
+        });
+    });
+
+    router.use('/api/v1', require('./api/url')(express));
+
+// This returns the express router
+
+    return router;
+};
