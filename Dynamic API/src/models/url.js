@@ -4,7 +4,7 @@
  */
 
 // This is require database
-var db = require('./db');
+const db = require('./db');
 
 
 // This creates
@@ -25,11 +25,11 @@ exports.findShortURL = (data, error, success) => {
     // This finds url based on the shortened url
     db.url.find({
         where: {
-            short_url: data.shortenedUrl,
+            main_url: data.shortenedUrl,
         },
     })
-        .then(success)
-        .catch(error);
+    .then(success)
+    .catch(error);
 };
 
 // This finds a single URL
@@ -48,7 +48,7 @@ exports.update = (payload, err, success) => {
         },
     }).then((existingData) => {
         existingData.updateAttributes(payload).then(success).catch(err);
-}).catch(err);
+    }).catch(err);
 };
 
 //This deletes the url

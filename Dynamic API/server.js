@@ -1,59 +1,22 @@
-/**
- * Created by JuddHome on 4/2/17.
- */
+// These are dependecies
+var express = require('express');
+//This parses the json data
+var bodyParser = require('body-parser');
+// This is express
+var app = express();
 
-//defines the use case for javascript
-'use strict';
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true,
+}));
 
-/* Modules */
+// This is routes
+app.use('/', require('./routes/global.js')(express));
 
+// This is the configuration for the server
+var port = process.env.PORT || 3000;
 
-var
-    express = require('express'),
-
-    app = express(),
-
-    bp = require('body-parser'),
-
-    cred = require('./development'),
-
-    routes = require('./routes/master')
-
-
-/* Server Config */
-
-// test.debug(DEBUG);
-
-//tells the app to treat urls as data pipes
-app.use(bp.urlencoded({ extended: true }))
-
-//tells app to use body parser as middlewear for JSON
-app.use(bp.json());
-
-// this sets the location for public files
-app.use(express.static('public'))
-
-// sets the view engine for the applications front end
-app.set('view engine', 'html')
-
-// connects to master router
-app.use('/', routes)
-
-
-
-
-/* Launching App */
-
-
-
-//This tells the app to listen on the set port
-exports.server = app.listen(cred.port, ()=>{
-
-        //this console.logs that the server is running correctly
-    console.log('Server has started and is running.')
-
+// This is the export server
+exports.server = app.listen(port, () => {
+        console.log('Server Active On', port);
 });
-
-
-// This exports the app for use elsewhere
-exports = app
