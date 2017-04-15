@@ -18,3 +18,12 @@ module.exports = (express) => {
     res.status(200).json(data);
 });
 });
+
+// This GETs All
+router.get('/url', (req, res) => {
+    url.findAll((err) => {
+    res.status(500).json(err);
+}, (data) => {
+    res.status(200).json(data);
+});
+});
