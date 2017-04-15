@@ -19,7 +19,10 @@ module.exports = (express) => {
         res.json({ main: 'hit' });
         debug.debug("The main route responded with success.");
     });
-
+    router.get('/status', (req, res) => {
+        res.json({ Healthy: true });
+        debug.debug("The status route responded with success");
+    });
 
 //this is for the shortUrl
     router.get('/go/:shortenedUrl', (req, res) => {
@@ -28,9 +31,11 @@ module.exports = (express) => {
         request.body.shortenedUrl = request.params.shortenedUrl;
         url.findShortURL(request.body, (err) => {
             response.status(500).json(err);
+            debug.debug("Sorry we could not redirect because of theses errors " + err, 'Error! ');
         }, (data) => {
             // This redirects to the original url
             response.redirect(data.first_url);
+            debug.debug("The redirect was successful");
         });
     });
 
