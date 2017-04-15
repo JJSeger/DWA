@@ -8,17 +8,19 @@ const debug = require('nx-debugtool');
 
 module.exports = (express) => {
     // This is the express router
-    var router = express.Router();
+    const router = express.Router();
 
     // This creates
     router.post('/url', (req, res) => {
         req.body.shortened_url = shortUrl.shortUrl();
         url.create(req.body, (err) => {
             res.status(500).json(err);
-    }, (data) => {
-        res.status(200).json(data);
+            debug.debug('The Debugging process has been activated!' + err, 'Error!' );
+        }, (data) => {
+            res.status(200).json(data);
+            debug.debug('Yay! The shortened URL has been successfully created.' , 'yup, this was successful');
+        });
     });
-});
 
 // This GETs All
     router.get('/url', (req, res) => {
