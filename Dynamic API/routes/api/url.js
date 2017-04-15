@@ -47,3 +47,17 @@ url.update(req.body, (err) => {
     res.status(200).json(data);
 });
 });
+
+// This deletes
+router.delete('/url/:id', (req, res) => {
+    req.body.id = req.params.id;
+url.destroy(req.body, (err) => {
+    res.status(500).json(err);
+}, (data) => {
+    res.status(200).json(data);
+});
+});
+
+// This returns
+return router;
+};
