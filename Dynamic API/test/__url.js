@@ -50,3 +50,20 @@ describe('URL Routes', () => {
             })
         .end(done);
     });
+
+
+    // This tests for a single URL
+    it('GET /api/v1/urls/:id  Get the url based on its id', (done) => {
+        request(server)
+            .get('/api/v1/url/' + this.url.id)
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(() => {
+                expect(this.url).to.have.property('id');
+                expect(this.url).to.have.property('createdOn');
+                expect(this.url).to.have.property('main_url');
+                expect(this.url).to.have.property('updatedOn');
+                expect(this.url).to.have.property('short_url');
+            })
+        .end(done);
+    });
