@@ -4,7 +4,11 @@
 
 // This is required for models/url
 
-var url = require('../models/url');
+const url = require('../models/url');
+
+// This requires modules/debug
+const debug = require('nx-debugtool');
+
 
 // This exports express
 module.exports = (express) => {
