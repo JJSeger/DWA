@@ -37,3 +37,13 @@ url.find(req.body, (err) => {
     res.status(200).json(data);
 });
 });
+
+// This updates
+router.get('/url/:id', (req, res) => {
+    req.body.id = req.params.id;
+url.update(req.body, (err) => {
+    res.status(500).json(err);
+}, (data) => {
+    res.status(200).json(data);
+});
+});
