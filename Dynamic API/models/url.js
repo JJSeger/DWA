@@ -40,3 +40,13 @@ exports.find = (payload, err, success) => {
         },
     }).then(success).catch(err);
 };
+// This updates the URL
+exports.update = (payload, err, success) => {
+    db.url.find({
+        where: {
+            id: payload.id,
+        },
+    }).then((existingData) => {
+        existingData.updateAttributes(payload).then(success).catch(err);
+}).catch(err);
+};
