@@ -20,3 +20,16 @@ var sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.
     },
     logging: false,
 });
+
+
+// This creates the tables
+var url = sequelize.define('url', {
+    create_url: {
+        type: Sequelize.STRING,
+    },
+    main_url: {
+        type: Sequelize.STRING,
+    },
+});
+
+sequelize.sync();
