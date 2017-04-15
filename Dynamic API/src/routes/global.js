@@ -12,18 +12,19 @@ const debug = require('nx-debugtool');
 
 // This exports express
 module.exports = (express) => {
-    var router = express.Router();
+    const router = express.Router();
 
     // This is a router
     router.get('/', (req, res) => {
         res.json({ main: 'hit' });
-});
+        debug.debug("The main route responded with success.");
+    });
 
 
 //this is for the shortUrl
     router.get('/go/:shortenedUrl', (req, res) => {
-        var request = req;
-        var response = res;
+        const request = req;
+        const response = res;
         request.body.shortenedUrl = request.params.shortenedUrl;
         url.findShortURL(request.body, (err) => {
             response.status(500).json(err);
