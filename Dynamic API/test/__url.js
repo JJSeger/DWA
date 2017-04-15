@@ -88,3 +88,16 @@ describe('URL Routes', () => {
         .end(done);
     });
 
+
+    // This deletes a url based on its id
+    it('DELETE This deletes one URL based on its id', (done) => {
+        request(server)
+        .get('/api/v1/url' + this.url.id)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/);
+        app.delete('/api/v1/url/' + this.url.id, (req, res) => {
+            res.status(200);
+        });
+        done();
+    });
+});
