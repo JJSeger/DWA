@@ -9,3 +9,8 @@ var url = require('../models/url');
 // This exports express
 module.exports = (express) => {
     var router = express.Router();
+
+    // This is a router
+    router.get('/', (req, res) => {
+        res.json({ main: 'hit' });
+});
