@@ -8,26 +8,39 @@ const request = require('supertest');
 describe('API Routes', () => {
     let server;
 
-beforeEach(() => {
+beforeEach(() = > {
     server = require('../src/server.js');
-});
+})
+;
 
-afterEach(() => {
+afterEach(() = > {
     server.close();
-});
+})
+;
 
-it('/ should return specified JSON object', (done) => {
+it('/ should return specified JSON object', (done) = > {
     request(server)
         .get('/')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
-        .expect(200, { main: 'Boom!' }, done);
-});
+        .expect(200, {main: 'Boom!'}, done);
+})
+;
 
-it('/status should return specified JSON object', (done) => {
+it('/status should return specified JSON object', (done) = > {
     request(server)
         .get('/status')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
-        .expect(200, { healthy: true }, done);
-});
+        .expect(200, {healthy: true}, done);
+})
+;
+// This test is for go shortenedURL
+it('/go/:shortenedURL should redirect user to long URL', (done) = > {
+    request(server)
+        .get('/go/CHfApl') // This must be in the database
+        .expect(302, done);
+})
+;
+})
+;
