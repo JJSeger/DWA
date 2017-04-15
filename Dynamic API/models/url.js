@@ -31,3 +31,12 @@ exports.findShortURL = (data, error, success) => {
         .then(success)
         .catch(error);
 };
+
+// This finds a single URL
+exports.find = (payload, err, success) => {
+    db.url.find({
+        where: {
+            id: payload.id,
+        },
+    }).then(success).catch(err);
+};
