@@ -7,6 +7,10 @@
 var db = require('./db');
 
 
+// This creates
+exports.create = (payload, err, success) => {
+    db.url.create(payload).then(success).catch(err);
+};
 
 
 
