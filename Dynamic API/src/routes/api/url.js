@@ -2,8 +2,9 @@
  * Created by JuddHome on 4/15/17.
  */
 // This is require URL
-var url = require('../../models/url');
-var shortUrl = require('../../modules/main_url');
+const url = require('../../models/url');
+const shortUrl = require('../../modules/main_url');
+const debug = require('nx-debugtool');
 
 module.exports = (express) => {
     // This is the express router
