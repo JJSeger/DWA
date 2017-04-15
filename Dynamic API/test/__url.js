@@ -38,3 +38,15 @@ describe('URL Routes', () => {
         .end(done);
     });
 
+    // This test for creating a shortened url
+    it('POST returns a generated short URL of 6 characters', (done) => {
+        request(server)
+            .post('/api/v1/url')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect((req) => {
+                const id = shortUrl.shortUrl();
+                expect(id).to.have.length('7');
+            })
+        .end(done);
+    });
