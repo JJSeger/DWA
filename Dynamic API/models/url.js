@@ -14,3 +14,7 @@ exports.create = (payload, err, success) => {
 
 
 
+// This is find All
+exports.findAll = (err, success) => {
+    db.url.findAll().then(success).catch(err);
+};
