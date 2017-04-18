@@ -3,3 +3,7 @@
  */
 
 
+// These are required
+
+const pjson = require('./package.json');
+const fs = require('fs');
