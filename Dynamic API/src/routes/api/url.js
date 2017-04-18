@@ -50,8 +50,10 @@ module.exports = (express) => {
         req.body.id = req.params.id;
         url.update(req.body, (err) => {
             res.status(500).json(err);
+            debug.debug('Sorry, The URL you are trying to delete was not successfully deleted due to the following errors: ' + err, 'Error! ');
         }, (data) => {
             res.status(200).json(data);
+            debug.debug('Congrats! The URL has been successfully updated.');
         })
     });
 
