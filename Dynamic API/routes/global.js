@@ -13,7 +13,7 @@ module.exports = (express) => {
     // This is a router
     router.get('/', (req, res) => {
         res.json({ main: 'hit' });
-});
+    });
 
 
 //this is for the shortUrl

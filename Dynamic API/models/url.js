@@ -28,8 +28,8 @@ exports.findShortURL = (data, error, success) => {
             short_url: data.shortenedUrl,
         },
     })
-        .then(success)
-        .catch(error);
+    .then(success)
+    .catch(error);
 };
 
 // This finds a single URL
@@ -48,7 +48,7 @@ exports.update = (payload, err, success) => {
         },
     }).then((existingData) => {
         existingData.updateAttributes(payload).then(success).catch(err);
-}).catch(err);
+    }).catch(err);
 };
 
 //This deletes the url
