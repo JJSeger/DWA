@@ -28,3 +28,10 @@ if (process.env.DEBUG === 'true') {
         }
     }
 };
+
+
+exports.verBump = (currVer, bump) => {
+    // Major index is verArr [0]
+    // Minor index is verArr[1]
+    // Patch index is verArr[2]
+    const verArr = currVer.split('.');
