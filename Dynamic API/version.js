@@ -24,3 +24,12 @@ if ((argv.v === 'major' || argv.v === 'minor' || argv.v === 'patch') && typeof a
     } else if (argv.v === 'patch') {
         version[2] = number;
     }
+
+    // This writes a new version
+pjson.version = version.join('.');
+    fs.writeFile('./package.json', JSON.stringify(pjson, null, 4), (err) => {
+        if (err)
+        {
+        return console.log(err);
+        }
+    });
