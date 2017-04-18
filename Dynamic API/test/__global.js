@@ -23,7 +23,7 @@ it('/ should return specified JSON object', (done) = > {
         .get('/')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
-        .expect(200, {main: 'Boom!'}, done);
+        .expect(200, {main: 'Congrats!'}, done);
 })
 ;
 

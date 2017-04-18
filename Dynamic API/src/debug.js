@@ -1,36 +1,62 @@
 /**
  * Created by JuddHome on 4/17/17.
  */
+const colors = require('colors');
 
-// These are the global dependencies
-const expect = require('chai').expect;
-const util = require('../src/debug');
-require('mocha-sinon');
+exports.debug = (data, type) => {
 
-process.env.DEBUG= true;
+    const time = new Date() + '\n';
 
-describe ('NX-Utility-Tool', (done) => {
-    beforeEach(function() {
-        this.sinon.stub(console, 'log');
-        this.sinon.stub(console, 'error');
-        this.sinon.stub(console, 'warn');
+//This is where I set my colors to RGB
+    colors.setTheme({
+        error: 'red',
+        warn: 'blue',
+        success: 'green',
     });
 
-it('We are currently checking for running tests', (done) => {
-    util.debug('Error', 'error');
-expect(console.error.calledOnce).to.be.true;
-done();
-});
+    if (process.env.DEBUG === 'true') {
+        // colours
+        if (type == 'warn') {
+            // Warnings
+            console.warn(colors.warn(data));
+        } else if (type == 'error') {
+            // Errors
+            console.error(colors.error(data));
+        } else {
+            // Success
+            console.log(colors.success(data));
+        }
+    }
+};
 
-it('We are currently checking for warnings', (done) => {
-    util.debug('Warning!', 'warn');
-expect(console.warn.calledOnce).to.be.true;
-done();
-});
+exports.verBump = (currVer, bump) => {
+    // Major index is verArr [0]
+    // Minor index is verArr[1]
+    // Patch index is verArr[2]
+    const verArr = currVer.split('.');
 
-it('All tests have been completed:', (done) => {
-    util.debug('testing', 'log');
-expect(console.log.calledOnce).to.be.true;
-done();
-});
-});
+    for (const i in verArr) {
+        verArr[i] = parseInt(verArr[i], 10);
+    }
+
+    if (bump === 'patch') {
+        // patch
+        verArr[2] += 1;
+        console.log('A Patch update has been created, version: ', verArr[0], '.', verArr[1], '.', verArr[2]);
+    } else if (bump === 'minor') {
+        // patch
+        verArr[2] = 0;
+        // minor
+        verArr[1] += 1;
+        console.log('A Minor update has been created, version: ', verArr[0], '.', verArr[1], '.', verArr[2]);
+    } else if (bump === 'major') {
+        // patch
+        verArr[2] = 0;
+        // minor
+        verArr[1] = 0;
+        verArr[0] += 1;
+        console.log('A Major update has been created, version: ', verArr[0], '.', verArr[1], '.', verArr[2]);
+    }
+
+    return verArr.join('.');
+};
