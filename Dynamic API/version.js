@@ -32,4 +32,10 @@ pjson.version = version.join('.');
         {
         return console.log(err);
         }
+        // This prints Success
+        console.log(argv.v + ' has been updated to ' + argv.n);
     });
+} else {
+    // This prints Error
+    console.log('Please verify your arguments.')
+}
